@@ -1,4 +1,5 @@
 require "treebank/transform/version"
+require "nokogiri"
 
 module Treebank
   class Transform
