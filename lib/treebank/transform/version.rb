@@ -1,5 +1,5 @@
 module Treebank
-  module Transform
+  class Transform
     VERSION = "0.0.1"
   end
 end

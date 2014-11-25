@@ -1,7 +1,13 @@
 require "treebank/transform/version"
 
 module Treebank
-  module Transform
-    # Your code goes here...
+  class Transform
+    def initialize(doc)
+      @doc = doc
+    end
+
+    def transform
+      @doc
+    end
   end
 end
