@@ -4,11 +4,11 @@ require "nokogiri"
 module Treebank
   class Transform
     def initialize(doc)
-      @doc = doc
+      @doc = Nokogiri::XML(doc);
     end
 
     def transform
-      @doc
+      @doc.to_xml
     end
   end
 end

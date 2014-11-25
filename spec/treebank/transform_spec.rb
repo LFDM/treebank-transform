@@ -9,6 +9,7 @@ describe Treebank::Transform do
 
   let(:tb1) do
 <<EOF
+<?xml version="1.0"?>
 <treebank>
   <sentence id="2" document_id="Perseus:text:1999.02.0010" subdoc="text=Catil.:Speech=1:chapter=1" span="quam0:eludet0">
     <word id="1" form="quam" lemma="quam1" postag="d--------" head="2" relation="ADV"/>
@@ -28,7 +29,7 @@ EOF
     it "returns the document when there is nothing to transform" do
       tb = Treebank::Transform.new(tb1)
       result = tb.transform
-      expect(result).to be tb1
+      expect(result).to eq tb1
     end
   end
 end
