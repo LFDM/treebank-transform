@@ -111,5 +111,13 @@ EOF
       result = tb.transform
       expect(result).to eq tb1
     end
+
+    context "with a single simple ellipsis" do
+      it "inserts a new elliptic node and updates the head" do
+        tb = Treebank::Transform.new(tb2)
+        result = tb.transform
+        expect(result).to eq tb2_result
+      end
+    end
   end
 end
