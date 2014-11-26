@@ -36,7 +36,7 @@ module Treebank
     def last_id
       return @last_id if @last_id
       last_word = @node.xpath('word').last
-      @last_id = last_word.attributes['id'].value.to_i
+      @last_id = last_word['id'].to_i
     end
 
     def update_last_id
