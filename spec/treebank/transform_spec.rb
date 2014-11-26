@@ -78,6 +78,7 @@ EOF
 
   let(:tb3) do
 <<EOF
+<?xml version="1.0"?>
 <treebank>
   <sentence id="95" document_id="Perseus:text:1999.02.0010" subdoc="text=Catil.:Speech=1:chapter=6" span="quid2:vero0">
     <word id="1" form="quid" lemma="quis1" postag="p-s---nn-" head="0" relation="SBJ_ExD0_PRED"/>
@@ -89,11 +90,12 @@ EOF
 
   let(:tb3_result) do
 <<EOF
+<?xml version="1.0"?>
 <treebank>
   <sentence id="95" document_id="Perseus:text:1999.02.0010" subdoc="text=Catil.:Speech=1:chapter=6" span="quid2:vero0">
     <word id="1" form="quid" lemma="quis1" postag="p-s---nn-" head="3" relation="SBJ"/>
     <word id="2" form="vero" lemma="verus1" postag="d--------" head="3" relation="AuxY"/>
-    <word id="3" insertion_id="0002e" artificial="elliptic" relation="PRED" head="0" form="[0]"/>
+    <word id="3" insertion_id="0002e" form="[0]" artificial="elliptic" head="0" relation="PRED"/>
   </sentence>
 </treebank>
 EOF
@@ -119,6 +121,14 @@ EOF
         tb = Treebank::Transform.new(tb2)
         result = tb.transform
         expect(result).to eq tb2_result
+      end
+    end
+
+    context "when multiple token are children of the same ellipsis" do
+      it "inserts a new elliptic node and updates the head" do
+        tb = Treebank::Transform.new(tb3)
+        result = tb.transform
+        expect(result).to eq tb3_result
       end
     end
   end

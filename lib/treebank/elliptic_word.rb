@@ -18,7 +18,7 @@ module Treebank
 
 
 
-      if cached_head = @sentence.elliptic_heads[elliptic_string]
+      if cached_head = @sentence.elliptic_nodes[elliptic_string]
         head = cached_head
       else
         new_node = @sentence.add_ellipsis({

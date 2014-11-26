@@ -2,12 +2,12 @@ module Treebank
   class Sentence
     require "treebank/alphabet"
 
-    attr_reader :elliptic_heads
+    attr_reader :elliptic_nodes
 
     def initialize(sentence)
       @sentence = sentence
       @last_id  = next_id
-      @elliptic_heads= {}
+      @elliptic_nodes = {}
     end
 
     def next_id
@@ -21,15 +21,15 @@ module Treebank
     end
 
     def add_ellipsis(attrs, string)
+      id = next_id
       all_attrs = {
-        id: next_id,
+        id: id,
         insertion_id: get_insertion_id,
         form: "[#{string}]"
       }.merge(attrs)
 
       new_node = new_word(all_attrs)
-      head = new_node['head']
-      @elliptic_heads[string] = head
+      @elliptic_nodes[string] = id
 
       @sentence.add_child(indent)
       @sentence.add_child(new_node)
