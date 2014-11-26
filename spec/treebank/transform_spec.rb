@@ -27,6 +27,7 @@ EOF
 
   let(:tb2) do
 <<EOF
+<?xml version="1.0"?>
 <treebank>
   <sentence id="126" document_id="Perseus:text:1999.02.0010" subdoc="text=Catil.:Speech=1:chapter=7" span="si4:desinam0">
     <word id="1" form="si" lemma="si1" postag="c--------" head="6" relation="AuxC"/>
@@ -51,6 +52,7 @@ EOF
 
   let(:tb2_result) do
 <<EOF
+<?xml version="1.0"?>
 <treebank>
   <sentence id="126" document_id="Perseus:text:1999.02.0010" subdoc="text=Catil.:Speech=1:chapter=7" span="si4:desinam0">
     <word id="1" form="si" lemma="si1" postag="c--------" head="6" relation="AuxC"/>
@@ -68,7 +70,7 @@ EOF
     <word id="13" form="aliquando" lemma="aliquando1" postag="d--------" head="15" relation="ADV"/>
     <word id="14" form="timere" lemma="timeo1" postag="v--pna---" head="15" relation="OBJ"/>
     <word id="15" form="desinam" lemma="desino1" postag="v1spsa---" head="11" relation="ExD_CO"/>
-    <word id="16" insertion_id="0016e" form="[0]" artificial="true" head="8" relation="ADV"/>
+    <word id="16" insertion_id="0015e" form="[0]" artificial="elliptic" head="8" relation="ADV"/>
   </sentence>
 </treebank>
 EOF
