@@ -4,8 +4,8 @@ module Treebank
 
     attr_reader :elliptic_nodes
 
-    def initialize(sentence)
-      @sentence = sentence
+    def initialize(sentence_node)
+      @node = sentence_node
       @last_id = @next_id = last_id
       @elliptic_nodes = {}
     end
@@ -21,9 +21,9 @@ module Treebank
       new_node = new_word(all_attrs)
       @elliptic_nodes[string] = id
 
-      @sentence.add_child(indent)
-      @sentence.add_child(new_node)
-      @sentence.add_child(new_line)
+      @node.add_child(indent)
+      @node.add_child(new_node)
+      @node.add_child(new_line)
       new_node
     end
 
@@ -35,7 +35,7 @@ module Treebank
 
     def last_id
       return @last_id if @last_id
-      last_word = @sentence.xpath('//word').last
+      last_word = @node.xpath('//word').last
       @last_id = last_word.attributes['id'].value.to_i
     end
 
@@ -52,17 +52,17 @@ module Treebank
     end
 
     def new_word(attrs)
-      word = Nokogiri::XML::Node.new('word', @sentence)
+      word = Nokogiri::XML::Node.new('word', @node)
       attrs.each { |k, v| word[k] = v }
       word
     end
 
     def indent
-      Nokogiri::XML::Text.new("  ", @sentence)
+      Nokogiri::XML::Text.new("  ", @node)
     end
 
     def new_line
-      Nokogiri::XML::Text.new("\n  ", @sentence)
+      Nokogiri::XML::Text.new("\n  ", @node)
     end
   end
 end

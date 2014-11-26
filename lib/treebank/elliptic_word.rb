@@ -1,23 +1,23 @@
 module Treebank
   class EllipticWord
-    def initialize(word, sentence)
-      @word = word
+    def initialize(word_node, sentence)
+      @node = word_node
       @sentence = sentence
     end
 
     def parse_elliptic_head
-      return unless match = @word['relation'].match(regexp)
+      return unless match = @node['relation'].match(regexp)
 
       label, elliptic_string, elliptic_label = match.captures
-      elliptic_head = @word['head']
+      elliptic_head = @node['head']
 
       unless head = @sentence.elliptic_nodes[elliptic_string]
         new_node = create_new_node(elliptic_head, elliptic_label, elliptic_string)
         head = new_node['id']
       end
 
-      @word['relation'] = label
-      @word['head'] = head
+      @node['relation'] = label
+      @node['head'] = head
     end
 
     private
