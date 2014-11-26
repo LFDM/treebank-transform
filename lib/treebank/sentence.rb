@@ -6,7 +6,7 @@ module Treebank
 
     def initialize(sentence)
       @sentence = sentence
-      @last_id  = next_id
+      @last_id = @next_id = last_id
       @elliptic_nodes = {}
     end
 
@@ -26,10 +26,11 @@ module Treebank
       @sentence.add_child(new_line)
       new_node
     end
+
     private
 
     def next_id
-      @last_id ? update_last_id : find_last_id
+      update_last_id
     end
 
     def last_id
@@ -42,16 +43,8 @@ module Treebank
       @next_id += 1
     end
 
-    def find_last_id
-      @next_id = last_id
-    end
-
     def suffix
-      if @suffix
-        @suffix = Alphabet.next_letter(@suffix)
-      else
-        @suffix = 'e'
-      end
+      @suffix = @suffix ? Alphabet.next_letter(@suffix) : 'e'
     end
 
     def get_insertion_id
