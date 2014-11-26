@@ -20,7 +20,7 @@ module Treebank
     def transform_elliptic_nodes
       @doc.xpath('//treebank/sentence').each do |sentence_node|
         sentence = Sentence.new(sentence_node)
-        sentence_node.xpath('//word').each do |word_node|
+        sentence_node.xpath('word').each do |word_node|
           if has_elliptic_head(word_node['relation'])
             word = EllipticWord.new(word_node, sentence)
             word.parse_elliptic_head
