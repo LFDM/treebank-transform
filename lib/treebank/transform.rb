@@ -2,20 +2,17 @@ require "treebank/transform/version"
 require "nokogiri"
 
 module Treebank
-  require "treebank/nokogiri_helper"
   require "treebank/sentence"
   require "treebank/elliptic_word"
 
   class Transform
-    include NokogiriHelper
-
     def initialize(doc)
       @doc = Nokogiri::XML(doc);
     end
 
     def transform
       transform_elliptic_nodes
-      @doc.to_xml
+      @doc.to_xml(indent: 2)
     end
 
     private
@@ -24,9 +21,9 @@ module Treebank
       @doc.xpath('//treebank/sentence').each do |sentence_node|
         sentence = Sentence.new(sentence_node)
         sentence_node.xpath('//word').each do |word_node|
-          if has_elliptic_head(get_attr(word_node, 'relation'))
-            word = EllipticWord.new(word_node)
-            extract_elliptic_head(sentence, word)
+          if has_elliptic_head(word_node['relation'])
+            word = EllipticWord.new(word_node, sentence)
+            word.parse_elliptic_head
           end
         end
       end
@@ -34,10 +31,6 @@ module Treebank
 
     def has_elliptic_head(label)
       label.match(/ExD\d+/)
-    end
-
-    def extract_elliptic_head(sentence, word)
-      # TODO
     end
   end
 end
