@@ -188,6 +188,103 @@ EOF
 EOF
   end
 
+  let(:tb5) do
+<<EOF
+<?xml version="1.0"?>
+<treebank>
+  <sentence id="93" document_id="Perseus:text:1999.02.0010" subdoc="text=Catil.:Speech=1:chapter=6" span="quae1:afuit0">
+    <word id="1" form="quae" lemma="qui1" postag="p-s---fn-" head="2" relation="ATR" />
+    <word id="2" form="libido" lemma="libido1" postag="n-s---fn-" head="12" relation="SBJ_ExD0_PRED_CO" />
+    <word id="3" form="ab" lemma="ab1" postag="r--------" head="12" relation="AuxP" />
+    <word id="4" form="oculis" lemma="oculus1" postag="n-p---mb-" head="3" relation="ADV_ExD0_PRED_CO" />
+    <word id="5" form="," lemma="comma1" postag="u--------" head="12" relation="AuxX" />
+    <word id="6" form="quod" lemma="qui1" postag="p-s---nn-" head="7" relation="ATR" />
+    <word id="7" form="facinus" lemma="facinus1" postag="n-s---nn-" head="12" relation="SBJ_ExD1_PRED_CO" />
+    <word id="8" form="a" lemma="ab1" postag="r--------" head="12" relation="AuxP_ExD1_PRED_CO" />
+    <word id="9" form="manibus" lemma="manus1" postag="n-p---fb-" head="8" relation="ADV" />
+    <word id="10" form="umquam" lemma="umquam1" postag="d--------" head="12" relation="ADV_ExD1_PRED_CO" />
+    <word id="11" form="tuis" lemma="tuus1" postag="a-p---fb-" head="9" relation="ATR" />
+    <word id="12" form="," lemma="comma1" postag="u--------" head="0" relation="COORD" />
+    <word id="13" form="quod" lemma="qui1" postag="p-s---nn-" head="14" relation="ATR" />
+    <word id="14" form="flagitium" lemma="flagitium1" postag="n-s---nn-" head="18" relation="SBJ" />
+    <word id="15" form="a" lemma="ab1" postag="r--------" head="18" relation="AuxP" />
+    <word id="16" form="toto" lemma="totus1" postag="a-s---nb-" head="17" relation="ATR" />
+    <word id="17" form="corpore" lemma="corpus1" postag="n-s---nb-" head="15" relation="ADV" />
+    <word id="18" form="afuit" lemma="Asum1" postag="v3sria---" head="12" relation="PRED_CO" />
+  </sentence>
+  <sentence id="94" document_id="Perseus:text:1999.02.0010" subdoc="text=Catil.:Speech=1:chapter=6" span="cui0:praetulisti0">
+    <word id="1" form="cui" lemma="qui1" postag="p-s---md-" head="3" relation="ATR" />
+    <word id="2" form="tu" lemma="tu1" postag="p-s---mn-" head="17" relation="SBJ" />
+    <word id="3" form="adulescentulo" lemma="adulescentulus1" postag="n-s---md-" head="17" relation="OBJ" />
+    <word id="4" form="quem" lemma="qui1" postag="p-s---ma-" head="7" relation="OBJ" />
+    <word id="5" form="corruptelarum" lemma="corruptela1" postag="n-p---fg-" head="6" relation="ATR" />
+    <word id="6" form="inlecebris" lemma="illecebra1" postag="n-p---fb-" head="7" relation="ADV" />
+    <word id="7" form="inretisses" lemma="irretio" postag="v2slsa---" head="3" relation="ATR" />
+    <word id="8" form="non" lemma="non1" postag="d--------" head="13" relation="AuxZ" />
+    <word id="9" form="aut" lemma="aut1" postag="c--------" head="13" relation="AuxY" />
+    <word id="10" form="ad" lemma="ad1" postag="r--------" head="13" relation="AuxP_ExD0_PRED_CO" />
+    <word id="11" form="audaciam" lemma="audacia1" postag="n-s---fa-" head="10" relation="ADV" />
+    <word id="12" form="ferrum" lemma="ferrum1" postag="n-s---na-" head="13" relation="OBJ_ExD0_PRED_CO" />
+    <word id="13" form="aut" lemma="aut1" postag="c--------" head="17" relation="COORD" />
+    <word id="14" form="ad" lemma="ad1" postag="r--------" head="17" relation="AuxP" />
+    <word id="15" form="libidinem" lemma="libido1" postag="n-s---fa-" head="14" relation="ADV" />
+    <word id="16" form="facem" lemma="fax1" postag="n-s---fa-" head="13" relation="OBJ" />
+    <word id="17" form="praetulisti" lemma="praefero1" postag="v2sria---" head="0" relation="PRED_CO" />
+  </sentence>
+</treebank>
+EOF
+  end
+
+  let(:tb5_result) do
+<<EOF
+<?xml version="1.0"?>
+<treebank>
+  <sentence id="93" document_id="Perseus:text:1999.02.0010" subdoc="text=Catil.:Speech=1:chapter=6" span="quae1:afuit0">
+    <word id="1" form="quae" lemma="qui1" postag="p-s---fn-" head="2" relation="ATR"/>
+    <word id="2" form="libido" lemma="libido1" postag="n-s---fn-" head="19" relation="SBJ"/>
+    <word id="3" form="ab" lemma="ab1" postag="r--------" head="12" relation="AuxP"/>
+    <word id="4" form="oculis" lemma="oculus1" postag="n-p---mb-" head="19" relation="ADV"/>
+    <word id="5" form="," lemma="comma1" postag="u--------" head="12" relation="AuxX"/>
+    <word id="6" form="quod" lemma="qui1" postag="p-s---nn-" head="7" relation="ATR"/>
+    <word id="7" form="facinus" lemma="facinus1" postag="n-s---nn-" head="20" relation="SBJ"/>
+    <word id="8" form="a" lemma="ab1" postag="r--------" head="20" relation="AuxP"/>
+    <word id="9" form="manibus" lemma="manus1" postag="n-p---fb-" head="8" relation="ADV"/>
+    <word id="10" form="umquam" lemma="umquam1" postag="d--------" head="20" relation="ADV"/>
+    <word id="11" form="tuis" lemma="tuus1" postag="a-p---fb-" head="9" relation="ATR"/>
+    <word id="12" form="," lemma="comma1" postag="u--------" head="0" relation="COORD"/>
+    <word id="13" form="quod" lemma="qui1" postag="p-s---nn-" head="14" relation="ATR"/>
+    <word id="14" form="flagitium" lemma="flagitium1" postag="n-s---nn-" head="18" relation="SBJ"/>
+    <word id="15" form="a" lemma="ab1" postag="r--------" head="18" relation="AuxP"/>
+    <word id="16" form="toto" lemma="totus1" postag="a-s---nb-" head="17" relation="ATR"/>
+    <word id="17" form="corpore" lemma="corpus1" postag="n-s---nb-" head="15" relation="ADV"/>
+    <word id="18" form="afuit" lemma="Asum1" postag="v3sria---" head="12" relation="PRED_CO"/>
+    <word id="19" insertion_id="0018e" form="[0]" artificial="elliptic" head="12" relation="PRED_CO"/>
+    <word id="20" insertion_id="0018f" form="[1]" artificial="elliptic" head="12" relation="PRED_CO"/>
+  </sentence>
+  <sentence id="94" document_id="Perseus:text:1999.02.0010" subdoc="text=Catil.:Speech=1:chapter=6" span="cui0:praetulisti0">
+    <word id="1" form="cui" lemma="qui1" postag="p-s---md-" head="3" relation="ATR"/>
+    <word id="2" form="tu" lemma="tu1" postag="p-s---mn-" head="17" relation="SBJ"/>
+    <word id="3" form="adulescentulo" lemma="adulescentulus1" postag="n-s---md-" head="17" relation="OBJ"/>
+    <word id="4" form="quem" lemma="qui1" postag="p-s---ma-" head="7" relation="OBJ"/>
+    <word id="5" form="corruptelarum" lemma="corruptela1" postag="n-p---fg-" head="6" relation="ATR"/>
+    <word id="6" form="inlecebris" lemma="illecebra1" postag="n-p---fb-" head="7" relation="ADV"/>
+    <word id="7" form="inretisses" lemma="irretio" postag="v2slsa---" head="3" relation="ATR"/>
+    <word id="8" form="non" lemma="non1" postag="d--------" head="13" relation="AuxZ"/>
+    <word id="9" form="aut" lemma="aut1" postag="c--------" head="13" relation="AuxY"/>
+    <word id="10" form="ad" lemma="ad1" postag="r--------" head="18" relation="AuxP"/>
+    <word id="11" form="audaciam" lemma="audacia1" postag="n-s---fa-" head="10" relation="ADV"/>
+    <word id="12" form="ferrum" lemma="ferrum1" postag="n-s---na-" head="18" relation="OBJ"/>
+    <word id="13" form="aut" lemma="aut1" postag="c--------" head="17" relation="COORD"/>
+    <word id="14" form="ad" lemma="ad1" postag="r--------" head="17" relation="AuxP"/>
+    <word id="15" form="libidinem" lemma="libido1" postag="n-s---fa-" head="14" relation="ADV"/>
+    <word id="16" form="facem" lemma="fax1" postag="n-s---fa-" head="13" relation="OBJ"/>
+    <word id="17" form="praetulisti" lemma="praefero1" postag="v2sria---" head="0" relation="PRED_CO"/>
+    <word id="18" insertion_id="0017e" form="[0]" artificial="elliptic" head="13" relation="PRED_CO"/>
+  </sentence>
+</treebank>
+EOF
+  end
+
   describe "#transform" do
     it "returns the document when there is nothing to transform" do
       tb = Treebank::Transform.new(tb1)
@@ -216,6 +313,14 @@ EOF
         tb = Treebank::Transform.new(tb4)
         result = tb.transform
         expect(result).to eq tb4_result
+      end
+    end
+
+    context "with multiple sentences in a document" do
+      it "does as it should" do
+        tb = Treebank::Transform.new(tb5)
+        result = tb.transform
+        expect(result).to eq tb5_result
       end
     end
   end
