@@ -28,6 +28,8 @@ module Treebank
         }, elliptic_string)
 
         head = new_node['id']
+        new_word = EllipticWord.new(new_node, @sentence)
+        new_word.parse_elliptic_head
       end
 
       @word['relation'] = label

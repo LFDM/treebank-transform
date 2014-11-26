@@ -101,13 +101,92 @@ EOF
 EOF
   end
 
-  #let(:tb4) do
-#<<EOF
-#<treebank>
+  let(:tb4) do
+<<EOF
+<?xml version="1.0"?>
+<treebank>
+  <sentence id="31" document_id="Perseus:text:1999.02.0010" subdoc="text=Catil.:Speech=1:chapter=2" span="si0:dicat0">
+    <word id="1" form="si" lemma="si1" postag="c--------" head="8" relation="AuxC"/>
+    <word id="2" form="te" lemma="tu1" postag="p-s---ma-" head="7" relation="SBJ"/>
+    <word id="3" form="iam" lemma="jam1" postag="d--------" head="7" relation="AuxY"/>
+    <word id="4" form="," lemma="comma1" postag="u--------" head="5" relation="AuxX"/>
+    <word id="5" form="Catilina" lemma="Catilina1" postag="n-s---mv-" head="7" relation="ExD"/>
+    <word id="6" form="," lemma="comma1" postag="u--------" head="5" relation="AuxX"/>
+    <word id="7" form="comprehendi" lemma="comprehendo1" postag="v--pnp---" head="1" relation="OBJ_ExD0_ADV_CO"/>
+    <word id="8" form="," lemma="comma1" postag="u--------" head="16" relation="COORD"/>
+    <word id="9" form="si" lemma="si1" postag="c--------" head="8" relation="AuxC"/>
+    <word id="10" form="interfici" lemma="interficio1" postag="v--pnp---" head="11" relation="OBJ"/>
+    <word id="11" form="iussero" lemma="jubeo1" postag="v1stia---" head="9" relation="ADV_CO"/>
+    <word id="12" form="," lemma="comma1" postag="u--------" head="8" relation="AuxX"/>
+    <word id="13" form="credo" lemma="credo1" postag="v1spia---" head="0" relation="PRED"/>
+    <word id="14" form="," lemma="comma1" postag="u--------" head="13" relation="AuxX"/>
+    <word id="15" form="erit" lemma="sum1" postag="v3sfia---" head="16" relation="AuxV"/>
+    <word id="16" form="verendum" lemma="vereor1" postag="t-spgpna-" head="13" relation="PRED"/>
+    <word id="17" form="mihi" lemma="ego1" postag="p-s---md-" head="16" relation="ADV"/>
+    <word id="18" form="ne" lemma="ne1" postag="c--------" head="16" relation="AuxC"/>
+    <word id="19" form="non" lemma="non1" postag="d--------" head="18" relation="AuxZ_ExD1_ADV"/>
+    <word id="20" form="hoc" lemma="hic1" postag="p-s---na-" head="18" relation="SBJ_ExD2_OBJ_ExD1_ADV"/>
+    <word id="21" form="potius" lemma="potis1" postag="d--------" head="18" relation="ADV_ExD1_ADV"/>
+    <word id="22" form="omnes" lemma="omnis1" postag="a-p---mn-" head="23" relation="ATR"/>
+    <word id="23" form="boni" lemma="bonus1" postag="a-p---mn-" head="18" relation="SBJ_ExD1_ADV"/>
+    <word id="24" form="serius" lemma="serus1" postag="d--------" head="18" relation="ADV_ExD2_OBJ_ExD1_ADV"/>
+    <word id="25" form="a" lemma="ab1" postag="r--------" head="18" relation="AuxP"/>
+    <word id="26" form="me" lemma="ego1" postag="p-s---mb-" head="25" relation="ADV_ExD2-29_OBJ"/>
+    <word id="27" form="quam" lemma="quam1" postag="d--------" head="21" relation="AuxC"/>
+    <word id="28" form="quisquam" lemma="quisquam1" postag="p-s---mn-" head="32" relation="SBJ"/>
+    <word id="29" form="crudelius" lemma="crudelis1" postag="d--------" head="30" relation="ADV"/>
+    <word id="30" form="factum" lemma="facio1" postag="t-srppna-" head="32" relation="OBJ"/>
+    <word id="31" form="esse" lemma="sum1" postag="v--pna---" head="30" relation="AuxV"/>
+    <word id="32" form="dicat" lemma="dico2" postag="v3spsa---" head="27" relation="ADV"/>
+  </sentence>
+</treebank>
+EOF
+  end
 
-#</treebank>
-#EOF
-  #end
+  let(:tb4_result) do
+<<EOF
+<?xml version="1.0"?>
+<treebank>
+  <sentence id="31" document_id="Perseus:text:1999.02.0010" subdoc="text=Catil.:Speech=1:chapter=2" span="si0:dicat0">
+    <word id="1" form="si" lemma="si1" postag="c--------" head="8" relation="AuxC"/>
+    <word id="2" form="te" lemma="tu1" postag="p-s---ma-" head="7" relation="SBJ"/>
+    <word id="3" form="iam" lemma="jam1" postag="d--------" head="7" relation="AuxY"/>
+    <word id="4" form="," lemma="comma1" postag="u--------" head="5" relation="AuxX"/>
+    <word id="5" form="Catilina" lemma="Catilina1" postag="n-s---mv-" head="7" relation="ExD"/>
+    <word id="6" form="," lemma="comma1" postag="u--------" head="5" relation="AuxX"/>
+    <word id="7" form="comprehendi" lemma="comprehendo1" postag="v--pnp---" head="33" relation="OBJ"/>
+    <word id="8" form="," lemma="comma1" postag="u--------" head="16" relation="COORD"/>
+    <word id="9" form="si" lemma="si1" postag="c--------" head="8" relation="AuxC"/>
+    <word id="10" form="interfici" lemma="interficio1" postag="v--pnp---" head="11" relation="OBJ"/>
+    <word id="11" form="iussero" lemma="jubeo1" postag="v1stia---" head="9" relation="ADV_CO"/>
+    <word id="12" form="," lemma="comma1" postag="u--------" head="8" relation="AuxX"/>
+    <word id="13" form="credo" lemma="credo1" postag="v1spia---" head="0" relation="PRED"/>
+    <word id="14" form="," lemma="comma1" postag="u--------" head="13" relation="AuxX"/>
+    <word id="15" form="erit" lemma="sum1" postag="v3sfia---" head="16" relation="AuxV"/>
+    <word id="16" form="verendum" lemma="vereor1" postag="t-spgpna-" head="13" relation="PRED"/>
+    <word id="17" form="mihi" lemma="ego1" postag="p-s---md-" head="16" relation="ADV"/>
+    <word id="18" form="ne" lemma="ne1" postag="c--------" head="16" relation="AuxC"/>
+    <word id="19" form="non" lemma="non1" postag="d--------" head="34" relation="AuxZ"/>
+    <word id="20" form="hoc" lemma="hic1" postag="p-s---na-" head="35" relation="SBJ"/>
+    <word id="21" form="potius" lemma="potis1" postag="d--------" head="34" relation="ADV"/>
+    <word id="22" form="omnes" lemma="omnis1" postag="a-p---mn-" head="23" relation="ATR"/>
+    <word id="23" form="boni" lemma="bonus1" postag="a-p---mn-" head="34" relation="SBJ"/>
+    <word id="24" form="serius" lemma="serus1" postag="d--------" head="35" relation="ADV"/>
+    <word id="25" form="a" lemma="ab1" postag="r--------" head="18" relation="AuxP"/>
+    <word id="26" form="me" lemma="ego1" postag="p-s---mb-" head="25" relation="ADV_ExD2-29_OBJ"/>
+    <word id="27" form="quam" lemma="quam1" postag="d--------" head="21" relation="AuxC"/>
+    <word id="28" form="quisquam" lemma="quisquam1" postag="p-s---mn-" head="32" relation="SBJ"/>
+    <word id="29" form="crudelius" lemma="crudelis1" postag="d--------" head="30" relation="ADV"/>
+    <word id="30" form="factum" lemma="facio1" postag="t-srppna-" head="32" relation="OBJ"/>
+    <word id="31" form="esse" lemma="sum1" postag="v--pna---" head="30" relation="AuxV"/>
+    <word id="32" form="dicat" lemma="dico2" postag="v3spsa---" head="27" relation="ADV"/>
+    <word id="33" insertion_id="0032e" form="[0]" artificial="elliptic" head="1" relation="ADV_CO"/>
+    <word id="34" insertion_id="0032f" form="[1]" artificial="elliptic" head="18" relation="ADV"/>
+    <word id="35" insertion_id="0032g" form="[2]" artificial="elliptic" head="34" relation="OBJ"/>
+  </sentence>
+</treebank>
+EOF
+  end
 
   describe "#transform" do
     it "returns the document when there is nothing to transform" do
@@ -129,6 +208,14 @@ EOF
         tb = Treebank::Transform.new(tb3)
         result = tb.transform
         expect(result).to eq tb3_result
+      end
+    end
+
+    context "when ellipses are chained" do
+      it "does as it should" do
+        tb = Treebank::Transform.new(tb4)
+        result = tb.transform
+        expect(result).to eq tb4_result
       end
     end
   end
