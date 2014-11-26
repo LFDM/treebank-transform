@@ -131,7 +131,7 @@ EOF
     <word id="23" form="boni" lemma="bonus1" postag="a-p---mn-" head="18" relation="SBJ_ExD1_ADV"/>
     <word id="24" form="serius" lemma="serus1" postag="d--------" head="18" relation="ADV_ExD2_OBJ_ExD1_ADV"/>
     <word id="25" form="a" lemma="ab1" postag="r--------" head="18" relation="AuxP"/>
-    <word id="26" form="me" lemma="ego1" postag="p-s---mb-" head="25" relation="ADV_ExD2-29_OBJ"/>
+    <word id="26" form="me" lemma="ego1" postag="p-s---mb-" head="25" relation="ADV_ExD2_OBJ_ExD1_ADV"/>
     <word id="27" form="quam" lemma="quam1" postag="d--------" head="21" relation="AuxC"/>
     <word id="28" form="quisquam" lemma="quisquam1" postag="p-s---mn-" head="32" relation="SBJ"/>
     <word id="29" form="crudelius" lemma="crudelis1" postag="d--------" head="30" relation="ADV"/>
@@ -173,7 +173,7 @@ EOF
     <word id="23" form="boni" lemma="bonus1" postag="a-p---mn-" head="34" relation="SBJ"/>
     <word id="24" form="serius" lemma="serus1" postag="d--------" head="35" relation="ADV"/>
     <word id="25" form="a" lemma="ab1" postag="r--------" head="18" relation="AuxP"/>
-    <word id="26" form="me" lemma="ego1" postag="p-s---mb-" head="25" relation="ADV_ExD2-29_OBJ"/>
+    <word id="26" form="me" lemma="ego1" postag="p-s---mb-" head="35" relation="ADV"/>
     <word id="27" form="quam" lemma="quam1" postag="d--------" head="21" relation="AuxC"/>
     <word id="28" form="quisquam" lemma="quisquam1" postag="p-s---mn-" head="32" relation="SBJ"/>
     <word id="29" form="crudelius" lemma="crudelis1" postag="d--------" head="30" relation="ADV"/>
