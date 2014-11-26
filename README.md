@@ -6,7 +6,11 @@
 [![Coverage](http://allthebadges.io/LFDM/treebank-transform/coveralls.png)](http://allthebadges.io/LFDM/treebank-transform/coveralls)
 [![Code Climate](http://allthebadges.io/LFDM/treebank-transform/code_climate.png)](http://allthebadges.io/LFDM/treebank-transform/code_climate)
 
-TODO: Write a gem description
+Transforms Perseus Treebank Files.
+
+Right now only a transformation of 1.5 files to the interim
+[Arethusa](http://github.com/latin-language-toolkit/arethusa)
+schema is supported. Elliptic nodes are handled differently these days.
 
 ## Installation
 
@@ -26,7 +30,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+You can transform the example file from your command line to check the
+output of this tool:
+
+```
+  $ treebank-transform do examples/cicero_catilina_sample.xml
+```
 
 ## Contributing
 
