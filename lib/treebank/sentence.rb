@@ -10,16 +10,6 @@ module Treebank
       @elliptic_nodes = {}
     end
 
-    def next_id
-      @last_id ? update_last_id : find_last_id
-    end
-
-    def last_id
-      return @last_id if @last_id
-      last_word = @sentence.xpath('//word').last
-      @last_id = last_word.attributes['id'].value.to_i
-    end
-
     def add_ellipsis(attrs, string)
       id = next_id
       all_attrs = {
@@ -36,6 +26,25 @@ module Treebank
       @sentence.add_child(new_line)
       new_node
     end
+    private
+
+    def next_id
+      @last_id ? update_last_id : find_last_id
+    end
+
+    def last_id
+      return @last_id if @last_id
+      last_word = @sentence.xpath('//word').last
+      @last_id = last_word.attributes['id'].value.to_i
+    end
+
+    def update_last_id
+      @next_id += 1
+    end
+
+    def find_last_id
+      @next_id = last_id
+    end
 
     def suffix
       if @suffix
@@ -49,8 +58,6 @@ module Treebank
       "#{last_id.to_s.rjust(4, '0')}#{suffix}"
     end
 
-    private
-
     def new_word(attrs)
       word = Nokogiri::XML::Node.new('word', @sentence)
       attrs.each { |k, v| word[k] = v }
@@ -63,14 +70,6 @@ module Treebank
 
     def new_line
       Nokogiri::XML::Text.new("\n  ", @sentence)
-    end
-
-    def update_last_id
-      @next_id += 1
-    end
-
-    def find_last_id
-      @next_id = last_id
     end
   end
 end

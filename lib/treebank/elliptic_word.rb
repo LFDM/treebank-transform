@@ -5,18 +5,12 @@ module Treebank
       @sentence = sentence
     end
 
-    def regexp
-      /(\w+?)_ExD(\d+)_(.+)/
-    end
-
     def parse_elliptic_head
       match = @word['relation'].match(regexp)
       return unless match
 
       label, elliptic_string, elliptic_label = match.captures
       elliptic_head = @word['head']
-
-
 
       if cached_head = @sentence.elliptic_nodes[elliptic_string]
         head = cached_head
@@ -34,6 +28,12 @@ module Treebank
 
       @word['relation'] = label
       @word['head'] = head
+    end
+
+    private
+
+    def regexp
+      /(\w+?)_ExD(\d+)_(.+)/
     end
   end
 end
