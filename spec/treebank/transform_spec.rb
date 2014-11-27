@@ -25,6 +25,8 @@ describe Treebank::Transform do
 EOF
   end
 
+  let(:tb1_result) { tb1 }
+
   let(:tb2) do
 <<EOF
 <?xml version="1.0"?>
@@ -307,50 +309,44 @@ EOF
 EOF
   end
 
+  def test(identifier)
+    tb = Treebank::Transform.new(send(identifier))
+    result = tb.transform
+    expect(result).to eq send("#{identifier}_result")
+  end
+
   describe "#transform" do
     it "returns the document when there is nothing to transform" do
-      tb = Treebank::Transform.new(tb1)
-      result = tb.transform
-      expect(result).to eq tb1
+      test(:tb1)
     end
 
     context "with a single simple ellipsis" do
       it "inserts a new elliptic node and updates the head" do
-        tb = Treebank::Transform.new(tb2)
-        result = tb.transform
-        expect(result).to eq tb2_result
+        test(:tb2)
       end
     end
 
     context "when multiple token are children of the same ellipsis" do
       it "inserts a new elliptic node and updates the head" do
-        tb = Treebank::Transform.new(tb3)
-        result = tb.transform
-        expect(result).to eq tb3_result
+        test(:tb4)
       end
     end
 
     context "when ellipses are chained" do
       it "does as it should" do
-        tb = Treebank::Transform.new(tb4)
-        result = tb.transform
-        expect(result).to eq tb4_result
+        test(:tb4)
       end
     end
 
     context "with multiple sentences in a document" do
       it "does as it should" do
-        tb = Treebank::Transform.new(tb5)
-        result = tb.transform
-        expect(result).to eq tb5_result
+        test(:tb5)
       end
     end
 
     context "with participles" do
       it "converts the old t PoS info to v" do
-        tb = Treebank::Transform.new(tb6)
-        result = tb.transform
-        expect(result).to eq tb6_result
+        test(:tb6)
       end
     end
   end
