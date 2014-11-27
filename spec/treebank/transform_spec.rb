@@ -163,7 +163,7 @@ EOF
     <word id="13" form="credo" lemma="credo1" postag="v1spia---" head="0" relation="PRED"/>
     <word id="14" form="," lemma="comma1" postag="u--------" head="13" relation="AuxX"/>
     <word id="15" form="erit" lemma="sum1" postag="v3sfia---" head="16" relation="AuxV"/>
-    <word id="16" form="verendum" lemma="vereor1" postag="t-spgpna-" head="13" relation="PRED"/>
+    <word id="16" form="verendum" lemma="vereor1" postag="v-spgpna-" head="13" relation="PRED"/>
     <word id="17" form="mihi" lemma="ego1" postag="p-s---md-" head="16" relation="ADV"/>
     <word id="18" form="ne" lemma="ne1" postag="c--------" head="16" relation="AuxC"/>
     <word id="19" form="non" lemma="non1" postag="d--------" head="34" relation="AuxZ"/>
@@ -177,7 +177,7 @@ EOF
     <word id="27" form="quam" lemma="quam1" postag="d--------" head="21" relation="AuxC"/>
     <word id="28" form="quisquam" lemma="quisquam1" postag="p-s---mn-" head="32" relation="SBJ"/>
     <word id="29" form="crudelius" lemma="crudelis1" postag="d--------" head="30" relation="ADV"/>
-    <word id="30" form="factum" lemma="facio1" postag="t-srppna-" head="32" relation="OBJ"/>
+    <word id="30" form="factum" lemma="facio1" postag="v-srppna-" head="32" relation="OBJ"/>
     <word id="31" form="esse" lemma="sum1" postag="v--pna---" head="30" relation="AuxV"/>
     <word id="32" form="dicat" lemma="dico2" postag="v3spsa---" head="27" relation="ADV"/>
     <word id="33" insertion_id="0032e" form="[0]" artificial="elliptic" head="1" relation="ADV_CO"/>
@@ -285,6 +285,28 @@ EOF
 EOF
   end
 
+  let(:tb6) do
+<<EOF
+<?xml version="1.0"?>
+<treebank>
+  <sentence id="1001">
+    <word id="1" form="factum" lemma="facio1" postag="t-srppna-" head="0" relation="PRED"/>
+  </sentence>
+</treebank>
+EOF
+  end
+
+  let(:tb6_result) do
+<<EOF
+<?xml version="1.0"?>
+<treebank>
+  <sentence id="1001">
+    <word id="1" form="factum" lemma="facio1" postag="v-srppna-" head="0" relation="PRED"/>
+  </sentence>
+</treebank>
+EOF
+  end
+
   describe "#transform" do
     it "returns the document when there is nothing to transform" do
       tb = Treebank::Transform.new(tb1)
@@ -321,6 +343,14 @@ EOF
         tb = Treebank::Transform.new(tb5)
         result = tb.transform
         expect(result).to eq tb5_result
+      end
+    end
+
+    context "with participles" do
+      it "converts the old t PoS info to v" do
+        tb = Treebank::Transform.new(tb6)
+        result = tb.transform
+        expect(result).to eq tb6_result
       end
     end
   end
