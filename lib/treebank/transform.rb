@@ -20,6 +20,11 @@ module Treebank
       @doc.to_xml(indent: 2)
     end
 
+    def extract_cts_name(extension = '')
+      # TODO - needs to be implemented still
+      "test#{extension}"
+    end
+
     private
 
     def transform_document_level
