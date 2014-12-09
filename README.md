@@ -30,11 +30,12 @@ Or install it yourself as:
 
 ## Usage
 
-You can transform the example file from your command line to check the
+You can transform the example files from your command line to check the
 output of this tool:
 
 ```
   $ treebank-transform do examples/cicero_catilina_sample.xml
+  $ treebank-transform do examples/hesiod_shield_of_heracles.xml
 ```
 
 ## Contributing
