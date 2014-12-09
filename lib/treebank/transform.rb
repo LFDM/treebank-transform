@@ -9,9 +9,8 @@ module Treebank
   BETA_2_UNICODE = 'treebank-beta-uni.xsl'
 
   class Transform
-    def initialize(file)
-      @file = file
-      @doc  = Nokogiri::XML(file);
+    def initialize(doc)
+      @doc  = Nokogiri::XML(doc);
     end
 
     def transform
@@ -24,9 +23,13 @@ module Treebank
     private
 
     def transform_document_level
+      beta2unicode
+    end
+
+    def beta2unicode
       Dir.chdir(STYLESHEETS) do
         @xslt = Nokogiri::XSLT(File.read(BETA_2_UNICODE))
-        @xslt.transform(@doc)
+        @doc = @xslt.transform(@doc)
       end
     end
 
