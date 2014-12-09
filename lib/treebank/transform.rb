@@ -5,12 +5,32 @@ module Treebank
   require "treebank/sentence"
   require "treebank/elliptic_word"
 
+  STYLESHEETS = File.expand_path('../../../stylesheets', __FILE__)
+  BETA_2_UNICODE = 'treebank-beta-uni.xsl'
+
   class Transform
-    def initialize(doc)
-      @doc = Nokogiri::XML(doc);
+    def initialize(file)
+      @file = file
+      @doc  = Nokogiri::XML(file);
     end
 
     def transform
+      transform_sentence_level
+      transform_document_level
+
+      @doc.to_xml(indent: 2)
+    end
+
+    private
+
+    def transform_document_level
+      Dir.chdir(STYLESHEETS) do
+        @xslt = Nokogiri::XSLT(File.read(BETA_2_UNICODE))
+        @xslt.transform(@doc)
+      end
+    end
+
+    def transform_sentence_level
       @doc.xpath('//treebank/sentence').each do |sentence_node|
         sentence = Sentence.new(sentence_node)
         sentence_node.xpath('word').each do |word_node|
@@ -18,10 +38,7 @@ module Treebank
           transform_participles(word_node)
         end
       end
-      @doc.to_xml(indent: 2)
     end
-
-    private
 
     def transform_elliptic_nodes(sentence, word_node)
       if has_elliptic_head(word_node['relation'])
