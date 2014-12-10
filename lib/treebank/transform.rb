@@ -41,6 +41,7 @@ module Treebank
     def transform_sentence_level
       @doc.xpath('//treebank/sentence').each do |sentence_node|
         sentence = Sentence.new(sentence_node)
+        sentence.ctsify
         sentence_node.xpath('word').each do |word_node|
           transform_elliptic_nodes(sentence, word_node)
           transform_participles(word_node)

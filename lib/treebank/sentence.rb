@@ -1,6 +1,7 @@
 module Treebank
   class Sentence
     require "treebank/alphabet"
+    require 'treebank/cts_map'
 
     attr_reader :elliptic_nodes
 
@@ -25,6 +26,16 @@ module Treebank
       @node.add_child(new_node)
       @node.add_child(new_line)
       new_node
+    end
+
+    def ctsify
+      doc_id  = @node['document_id']
+      cts_urn = CtsMap.doc_id_to_cts_urn(doc_id)
+      return unless cts_urn
+
+      @node['document_id'] = cts_urn
+      subdoc = @node['subdoc']
+      @node['subdoc'] = subdoc.gsub(/\D/, ' ').split.join('.')
     end
 
     private
