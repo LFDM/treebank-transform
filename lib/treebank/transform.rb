@@ -5,7 +5,7 @@ module Treebank
   require "treebank/sentence"
   require "treebank/elliptic_word"
 
-  STYLESHEETS = File.expand_path('../../../stylesheets', __FILE__)
+  RESOURCES = File.expand_path('../transform/resources', __FILE__)
   BETA_2_UNICODE = 'treebank-beta-uni.xsl'
 
   class Transform
@@ -32,7 +32,7 @@ module Treebank
     end
 
     def beta2unicode
-      Dir.chdir(STYLESHEETS) do
+      Dir.chdir(RESOURCES) do
         @xslt = Nokogiri::XSLT(File.read(BETA_2_UNICODE))
         @doc = @xslt.transform(@doc)
       end
