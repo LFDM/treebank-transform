@@ -21,8 +21,9 @@ module Treebank
     end
 
     def extract_cts_name(extension = '')
-      # TODO - needs to be implemented still
-      "test#{extension}"
+      sentence = @doc.xpath('//treebank/sentence').first
+      match = sentence['document_id'].match('urn:cts:.*Lit:(.*)')
+      "#{match[1]}#{extension}" if match
     end
 
     private
