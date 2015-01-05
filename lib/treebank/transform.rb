@@ -11,12 +11,13 @@ module Treebank
   class Transform
     def initialize(doc)
       @doc  = Nokogiri::XML(doc);
+      @doc.encoding = "utf-8"
     end
 
     def transform
       transform_sentence_level
       transform_document_level
-
+      @doc.encoding = "utf-8"
       @doc.to_xml(indent: 2)
     end
 
