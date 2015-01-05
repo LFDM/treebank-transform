@@ -1801,5 +1801,19 @@
   "Perseus:text:2008.01.0698": "urn:cts:latinLit:stoa0089.stoa002.perseus-lat1",
   "Perseus:text:2008.01.0687": "urn:cts:latinLit:stoa0089.stoa012.perseus-lat1",
   "Perseus:text:2013.01.0001": "urn:cts:greekLit:tlg0008.tlg001.perseus-grc2",
-  "Perseus:text:2013.01.0002": "urn:cts:greekLit:tlg1389.tlg001.perseus-grc1"
+  "Perseus:text:2013.01.0002": "urn:cts:greekLit:tlg1389.tlg001.perseus-grc1",
+  "Perseus:text:9999.01.0001": "urn:cts:greekLit:tlg0059.tlg001.perseus-grc1",
+  "Perseus:text:9999.01.0002": "urn:cts:greekLit:tlg0059.tlg002.perseus-grc1",
+  "Perseus:text:9999.01.0003": "urn:cts:greekLit:tlg0059.tlg003.perseus-grc1",
+  "Perseus:text:9999.01.0004": "urn:cts:greekLit:tlg0059.tlg011.perseus-grc1",
+  "Perseus:text:9999.01.0005": "urn:cts:latinLit:phi1276.phi001.perseus-lat1",
+  "Perseus:text:9999.01.0006": "urn:cts:greekLit:tlg0085.tlg006.perseus-grc2",
+  "Perseus:text:9999.01.0007": "urn:cts:greekLit:tlg0085.tlg004.perseus-grc2",
+  "Perseus:text:9999.01.0008": "urn:cts:greekLit:tlg0085.tlg003.perseus-grc2",
+  "Perseus:text:9999.01.0009": "urn:cts:greekLit:tlg0085.tlg002.perseus-grc2",
+  "Perseus:text:9999.01.0010": "urn:cts:greekLit:tlg0085.tlg001.perseus-grc2",
+  "Perseus:text:9999.01.0011": "urn:cts:greekLit:tlg0011.tlg001.perseus-grc2",
+  "Perseus:text:9999.01.0012": "urn:cts:greekLit:tlg0011.tlg005.perseus-grc2",
+  "Perseus:text:9999.01.0013": "urn:cts:greekLit:tlg0011.tlg002.perseus-grc2",
+  "Perseus:text:9999.01.0014": "urn:cts:greekLit:tlg0540.tlg001.perseus-grc1"
 }
