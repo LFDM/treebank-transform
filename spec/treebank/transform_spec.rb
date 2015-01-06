@@ -25,11 +25,27 @@ describe Treebank::Transform do
 EOF
   end
 
-  let(:tb1_result) { tb1 }
+  let(:tb1_result) do
+<<EOF
+<?xml version="1.0" encoding="utf-8"?>
+<treebank>
+  <sentence id="2" document_id="Perseus:text:1999.02.0010" subdoc="text=Catil.:Speech=1:chapter=1" span="quam0:eludet0">
+    <word id="1" form="quam" lemma="quam1" postag="d--------" head="2" relation="ADV"/>
+    <word id="2" form="diu" lemma="diu1" postag="d--------" head="8" relation="ADV"/>
+    <word id="3" form="etiam" lemma="etiam1" postag="c--------" head="8" relation="AuxY"/>
+    <word id="4" form="furor" lemma="furor2" postag="n-s---mn-" head="8" relation="SBJ"/>
+    <word id="5" form="iste" lemma="iste1" postag="p-s---mn-" head="4" relation="ATR"/>
+    <word id="6" form="tuus" lemma="tuus1" postag="a-s---mn-" head="4" relation="ATR"/>
+    <word id="7" form="nos" lemma="nos1" postag="p-p---ma-" head="8" relation="OBJ"/>
+    <word id="8" form="eludet" lemma="eludo1" postag="v3sfia---" head="0" relation="PRED"/>
+  </sentence>
+</treebank>
+EOF
+end
 
   let(:tb2) do
 <<EOF
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <treebank>
   <sentence id="126" document_id="Perseus:text:1999.02.0010" subdoc="text=Catil.:Speech=1:chapter=7" span="si4:desinam0">
     <word id="1" form="si" lemma="si1" postag="c--------" head="6" relation="AuxC"/>
@@ -54,7 +70,7 @@ EOF
 
   let(:tb2_result) do
 <<EOF
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <treebank>
   <sentence id="126" document_id="Perseus:text:1999.02.0010" subdoc="text=Catil.:Speech=1:chapter=7" span="si4:desinam0">
     <word id="1" form="si" lemma="si1" postag="c--------" head="6" relation="AuxC"/>
@@ -92,7 +108,7 @@ EOF
 
   let(:tb3_result) do
 <<EOF
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <treebank>
   <sentence id="95" document_id="Perseus:text:1999.02.0010" subdoc="text=Catil.:Speech=1:chapter=6" span="quid2:vero0">
     <word id="1" form="quid" lemma="quis1" postag="p-s---nn-" head="3" relation="SBJ"/>
@@ -147,7 +163,7 @@ EOF
 
   let(:tb4_result) do
 <<EOF
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <treebank>
   <sentence id="31" document_id="Perseus:text:1999.02.0010" subdoc="text=Catil.:Speech=1:chapter=2" span="si0:dicat0">
     <word id="1" form="si" lemma="si1" postag="c--------" head="8" relation="AuxC"/>
@@ -239,7 +255,7 @@ EOF
 
   let(:tb5_result) do
 <<EOF
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <treebank>
   <sentence id="93" document_id="Perseus:text:1999.02.0010" subdoc="text=Catil.:Speech=1:chapter=6" span="quae1:afuit0">
     <word id="1" form="quae" lemma="qui1" postag="p-s---fn-" head="2" relation="ATR"/>
@@ -300,7 +316,7 @@ EOF
 
   let(:tb6_result) do
 <<EOF
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <treebank>
   <sentence id="1001">
     <word id="1" form="factum" lemma="facio1" postag="v-srppna-" head="0" relation="PRED"/>
@@ -308,6 +324,72 @@ EOF
 </treebank>
 EOF
   end
+
+  let(:tb7) do
+<<EOF
+<?xml version="1.0"?>
+<treebank>
+    <sentence subdoc="urn:cts:greekLit:tlg0012.tlg001:12.1 urn:cts:greekLit:tlg0012.tlg001:12.2" id="2277903" document_id="Perseus:text:1999.01.0133" span="λόγος">
+      <word id="1" form="λόγος" head="0" relation="nil" postag="---------" lemma=""/>
+    </sentence>
+</treebank>
+EOF
+end
+
+  let(:tb7_result) do 
+<<EOF
+<?xml version="1.0" encoding="utf-8"?>
+<treebank>
+    <sentence subdoc="12.1-12.2" id="2277903" document_id="urn:cts:greekLit:tlg0012.tlg001.perseus-grc1" span="λόγος">
+      <word id="1" form="λόγος" head="0" relation="nil" postag="---------" lemma=""/>
+    </sentence>
+</treebank>
+EOF
+end
+
+  let(:tb8) do
+<<EOF
+<?xml version="1.0"?>
+<treebank>
+    <sentence subdoc="urn:cts:greekLit:tlg0012.tlg001:12.1" id="2277903" document_id="Perseus:text:1999.01.0133" span="λόγος">
+      <word id="1" form="λόγος" head="0" relation="nil" postag="---------" lemma=""/>
+    </sentence>
+</treebank>
+EOF
+end
+
+  let(:tb8_result) do 
+<<EOF
+<?xml version="1.0" encoding="utf-8"?>
+<treebank>
+    <sentence subdoc="12.1" id="2277903" document_id="urn:cts:greekLit:tlg0012.tlg001.perseus-grc1" span="λόγος">
+      <word id="1" form="λόγος" head="0" relation="nil" postag="---------" lemma=""/>
+    </sentence>
+</treebank>
+EOF
+end
+
+  let(:tb9) do
+<<EOF
+<?xml version="1.0"?>
+<treebank>
+    <sentence subdoc="urn:cts:greekLit:tlg0012.tlg001:12.1 urn:cts:greekLit:tlg0012.tlg001:12.2 urn:cts:greekLit:tlg0012.tlg001:12.3" id="2277903" document_id="Perseus:text:1999.01.0133" span="λόγος">
+      <word id="1" form="λόγος" head="0" relation="nil" postag="---------" lemma=""/>
+    </sentence>
+</treebank>
+EOF
+end
+
+  let(:tb9_result) do 
+<<EOF
+<?xml version="1.0" encoding="utf-8"?>
+<treebank>
+    <sentence subdoc="12.1-12.3" id="2277903" document_id="urn:cts:greekLit:tlg0012.tlg001.perseus-grc1" span="λόγος">
+      <word id="1" form="λόγος" head="0" relation="nil" postag="---------" lemma=""/>
+    </sentence>
+</treebank>
+EOF
+end
 
   def test(identifier)
     tb = Treebank::Transform.new(send(identifier))
@@ -338,7 +420,7 @@ EOF
       end
     end
 
-    context "with multiple sentences in a document" do
+    context "with multiple sentences in a " do
       it "does as it should" do
         test(:tb5)
       end
@@ -347,6 +429,24 @@ EOF
     context "with participles" do
       it "converts the old t PoS info to v" do
         test(:tb6)
+      end
+    end
+
+    context "with 2 cts subdocs" do
+      it "converts the subdoc properly" do
+        test(:tb7)
+      end
+    end
+
+    context "with 1 cts subdoc" do
+      it "converts the subdoc properly" do
+        test(:tb8)
+      end
+    end
+
+    context "with 3 cts subdoc" do
+      it "converts the subdoc properly" do
+        test(:tb9)
       end
     end
   end

@@ -35,7 +35,16 @@ module Treebank
 
       @node['document_id'] = cts_urn
       subdoc = @node['subdoc']
-      @node['subdoc'] = subdoc.gsub(/\D/, ' ').split.join('.')
+      if (subdoc.match(/urn:cts:/)) 
+         cites = subdoc.gsub(/urn:cts:.*?Lit:[^\s]*?:/,'').split(/\s+/)
+         if (cites.length > 1) 
+           @node['subdoc'] = "#{cites[0]}-#{cites[cites.length-1]}"
+         else
+           @node['subdoc'] = cites[0]
+         end
+      else
+        @node['subdoc'] = subdoc.gsub(/\D/, ' ').split.join('.')
+      end 
     end
 
     private
